@@ -1,9 +1,9 @@
 import React from "react";
 
-const About = () => {
+export default function About() {
   return (
     <section className="section about-section">
-      <h1 className="section-title">About Me</h1>
+      <h1 className="section-title">About me</h1>
       <p>
         I am Ruhul Amin Sujon . My home district is Gaibandha. I graduated with
         B.Sc in CSE from Sonargaon University, Dhaka. My CGPA is 3.6 out of 4. I
@@ -19,6 +19,4 @@ const About = () => {
       </p>
     </section>
   );
-};
-
-export default About;
+}

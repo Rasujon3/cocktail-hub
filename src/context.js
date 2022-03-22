@@ -1,6 +1,7 @@
-import React, { useState, useContext, useEffect, useCallback } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { useCallback } from "react";
 
-const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=`;
+const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
@@ -17,12 +18,14 @@ const AppProvider = ({ children }) => {
       const { drinks } = data;
       if (drinks) {
         const newCocktails = drinks.map((item) => {
-          const { idDrink, strDrink, strDrinkThumb, strAlchoholic, strGlass } =
+          const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
             item;
+
           return {
             id: idDrink,
             name: strDrink,
             image: strDrinkThumb,
+            info: strAlcoholic,
             glass: strGlass,
           };
         });
@@ -39,7 +42,6 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     fetchDrinks();
   }, [searchTerm, fetchDrinks]);
-
   return (
     <AppContext.Provider
       value={{ loading, cocktails, searchTerm, setSearchTerm }}
@@ -48,8 +50,8 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
-
-export const useGlobalCOntext = () => {
+// make sure use
+export const useGlobalContext = () => {
   return useContext(AppContext);
 };
 

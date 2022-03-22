@@ -1,11 +1,11 @@
-import React from "react";
-
-const Home = () => {
+import React from 'react'
+import CocktailList from '../components/CocktailList'
+import SearchForm from '../components/SearchForm'
+export default function Home() {
   return (
-    <div>
-      <h1>THis is the home component</h1>
-    </div>
-  );
-};
-
-export default Home;
+    <main>
+      <SearchForm />
+      <CocktailList />
+    </main>
+  )
+}
